@@ -1,7 +1,10 @@
+"use client";
+import Form from './UI/Form';
+import Card from './UI/Card';
 export default function Contact() {
     return (
-        <div>
-            <h1>Contact</h1>
-        </div>
+        <Card>
+            <Form />
+        </Card>
     );
 }
