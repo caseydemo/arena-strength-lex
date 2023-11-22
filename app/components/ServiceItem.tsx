@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Card from "./UI/Card";
 import styles from "../styles/service.module.css";
-export default function Service(props: any) {
-
-  console.log(props)
+import { ServiceItemProps } from "../types";
+export default function Service(props: ServiceItemProps) {  
 
   return (
     <Card className={styles.serviceCard}>
@@ -18,10 +17,10 @@ export default function Service(props: any) {
         <div className="col-sm">
           <Image
             className={styles.serviceImage}
-            src={`/${props.image_src}`}
-            width={props.image_width}
-            height={props.image_height}
-            alt={props.image_alt}
+            src={`/${props.image.src}`}
+            width={props.image.width}
+            height={props.image.height}
+            alt={props.image.alt}
           />
         </div>
       </div>
