@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import BootstrapClient from './components/UI/BootstrapClient'
+import React from 'react';
 
 
 
@@ -13,8 +14,6 @@ export const metadata: Metadata = {
   description: 'Lexington Kentucky\'s premier weight training gym.',
 }
 
-import React from 'react';
-import TopNav from './components/TopNav'
 
 export default function RootLayout({
   children,
@@ -23,8 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className || ''}>        
-        <TopNav />
+      <body className={inter.className || ''}>
         {children}
         <BootstrapClient />
       </body>

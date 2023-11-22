@@ -1,0 +1,45 @@
+/* The hero image */
+.heroImage {
+  /* use background-image of url("../../../public/GYMLOGO.png") stretch and center */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
+    url("/rack_1.JPG");
+
+  /* Set a specific height */
+  height: 500px;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Place text in the middle of the image */
+.heroText {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.heroTitle {
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-bottom: 25px;
+}
+/* media query for desktop size screens - min-width */
+@media only screen and (min-width: 768px) {
+  .heroText {
+    width: 100%;
+  }
+  .heroText .heroTitle {
+    font-weight: bolder;
+    letter-spacing: 5px;
+    font-size: 90px;
+  }
+  .heroText p {
+    font-size: 30px;
+  }
+}
