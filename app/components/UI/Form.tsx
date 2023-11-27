@@ -5,14 +5,22 @@ import React, { useState, useRef } from "react";
 // https://dev.to/ivanms1/protecting-your-api-keys-with-next-js-21ej
 
 export default function Form() {
+
     const form = useRef<HTMLFormElement | null>(null);
     const [formSubmitted, setFormSubmitted] = useState(false);
-
-    // cast e to type of Event
+        
     function sendEmail(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+
+        setFormSubmitted(true);
+
         emailjs
-            .sendForm(process.env.EMAILJS_ID, "<YOUR TEMPLATE ID>", "#myForm")
+            .sendForm(
+                process.env.NEXT_PUBLIC_SERVICE_ID ?? '', // Provide a default value for the service ID            
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+                form.current!,
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+            )
             .then(
                 function (response) {
                     console.log("SUCCESS!", response.status, response.text);
@@ -24,7 +32,7 @@ export default function Form() {
     }
 
     return (
-        <Card className='contact-form'>
+        <>
             {/* if !formSubmitted, display 'contact us' and form, else display 'thank you' */}
 
             {!formSubmitted && (
@@ -73,11 +81,13 @@ export default function Form() {
             )}
             {formSubmitted && (
                 // form submitted - display thank you
-                <div>
-                    <h1>Thank You</h1>
-                    <p>We appreciate your feedback.</p>
-                </div>
+                <>
+                    <h1>Thank You!</h1>
+                    <p>We will get back with you as soon as possible, for more immediate contact you can also call us at:</p>
+                    <p>Phone: (859) 333-9300</p>
+                    <p>Or stop by and say hello!</p>                    
+                </>
             )}
-        </Card>
+        </>
     );
 }
