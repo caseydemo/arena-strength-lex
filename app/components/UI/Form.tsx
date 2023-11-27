@@ -40,6 +40,7 @@ export default function Form() {
                 <form
                     ref={form}
                     onSubmit={sendEmail}
+                    id="contact-us-form"
                 >
                     <h1>Contact Us</h1>
 

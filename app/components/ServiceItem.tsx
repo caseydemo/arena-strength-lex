@@ -2,11 +2,11 @@ import Image from "next/image";
 import Card from "./UI/Card";
 import styles from "../styles/service.module.css";
 import { ServiceItemProps } from "../types";
-export default function Service(props: ServiceItemProps) {  
+export default function Service(props: ServiceItemProps) {    
 
   return (
     <Card className={styles.serviceCard}>
-      <div className="row service_wrapper">
+      <div id={`service-${props.id}`} className="row service_wrapper">
         {/* title/description */}
         <div className="col-sm service-text-wrapper">
           <h2 className="service-title">{props.title}</h2>
