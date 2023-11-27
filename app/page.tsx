@@ -7,7 +7,7 @@ import Location from "./components/Location";
 import Footer from "./components/Footer";
 
 export default function Home() {
-  return (
+  return (    
     <main>
       <TopNav />
       <Hero />
@@ -16,6 +16,6 @@ export default function Home() {
       <Contact />
       <Location />
       <Footer />
-    </main>
+    </main>    
   );
 }
