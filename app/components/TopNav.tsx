@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "../styles/top-nav.module.css";
 export default function TopNav() {
+
   return (
     <nav className={`navbar navbar-expand-lg ${styles.myNavbar}`}>
       <div className={`container-fluid ${styles.myContainerFluid}`}>
