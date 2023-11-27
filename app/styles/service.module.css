@@ -1,6 +1,36 @@
-.serviceCard {
-    /*  */
+.service_text_wrapper {
+    padding-left:0px;
+    text-align: center;
+    vertical-align: middle;    
 }
-.serviceImage {
-    /*  */
+.service_title {
+    font-size: 50px;
+}
+.service_description {
+    width: 75%;
+    margin: auto;
+}
+.service_image {
+    margin: auto;        
+    display: block;
+    padding: 15px;
+}
+.service_image_wrapper {
+    padding-left:0px;
+}
+.service_wrapper {
+    height:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+/* media query for desktop size screens - min-width */
+@media only screen and (min-width: 768px) {
+    .service_card {
+        height: 475px;
+    }
+    .service_image {
+        /* width: 75%; */
+        padding: 0px;
+    }
 }
