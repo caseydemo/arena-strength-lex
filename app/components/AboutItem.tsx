@@ -1,13 +1,15 @@
 import Card from "./UI/Card";
 import Image from "next/image";
 import { AboutItemProps } from "../types";
+import Accordion from "./UI/Accordion";
+import styles from "../styles/about.module.css";
 
 // enforce the props to be of type AboutItemProps
 
 export default function AboutItem(props: AboutItemProps) {
     
     return (
-        <Card className='about-item'>
+        <Card className={styles.about_item}>
             <h2>{props.title}</h2>
             <Image
                 src={`/${props.image.src}`}
@@ -15,7 +17,7 @@ export default function AboutItem(props: AboutItemProps) {
                 height={props.image.height}
                 alt={props.image.alt}
             />
-            <p>{props.text}</p>
+            <Accordion id={props.title} title={props.title} text={props.text} />
         </Card>
     );
 }

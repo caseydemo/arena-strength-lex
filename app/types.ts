@@ -17,3 +17,10 @@ export interface AboutItemProps {
     image: ImageData;
     text: string;
 }
+
+// accordion props - is an array of objects that contain: title, text, id
+export interface AccordionProps {    
+    title: string;
+    text: string;
+    id: string;
+}
