@@ -6,6 +6,9 @@
 .pnp.js
 .yarn/install-state.gz
 
+# static folder for DigitalOcean App Platform
+_static
+
 # testing
 /coverage
 
