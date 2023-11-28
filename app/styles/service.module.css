@@ -1,5 +1,4 @@
 .service_text_wrapper {
-    padding-left:0px;
     text-align: center;
     vertical-align: middle;    
 }
@@ -24,10 +23,14 @@
     align-items: center;
     justify-content: center;
 }
+.service_card {
+    margin-top:15px;
+    overflow: hidden;
+}
 /* media query for desktop size screens - min-width */
 @media only screen and (min-width: 768px) {
     .service_card {
-        height: 475px;
+        height: 475px;        
     }
     .service_image {
         /* width: 75%; */
