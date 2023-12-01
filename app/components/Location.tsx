@@ -1,8 +1,9 @@
 import Card from "./UI/Card";
+import styles from "../styles/default.module.css";
 export default function Location() {
     return (
         <Card>
-            <h2>Location</h2>
+            <h2 className={styles.card_title} >Location</h2>
             <p>1183 Brock McVey Dr Unit D, Lexington, KY 40509</p>
             {/* taken directly from google maps */}
             <iframe

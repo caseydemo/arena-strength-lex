@@ -1,0 +1,12 @@
+.send_button, .name_input, .email_input, .message_input {
+    margin-top: 25px;
+}
+.send_button {    
+    width: 100%;
+}
+.name_input, .email_input, .message_input {
+    text-align: left;
+}
+.card_title {
+    margin-top: 25px;
+}
