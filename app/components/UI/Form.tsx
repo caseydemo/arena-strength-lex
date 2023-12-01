@@ -1,5 +1,5 @@
 import emailjs from "emailjs-com";
-import Card from "./Card";
+import styles from "../../styles/form.module.css";
 import React, { useState, useRef } from "react";
 
 // https://dev.to/ivanms1/protecting-your-api-keys-with-next-js-21ej
@@ -42,9 +42,9 @@ export default function Form() {
                     onSubmit={sendEmail}
                     id="contact-us-form"
                 >
-                    <h1>Contact Us</h1>
+                    <h1 className={styles.card_title} >Contact Us</h1>
 
-                    <div className='form-group'>
+                    <div className={`form-group ${styles.name_input}`}>
                         <label>Name</label>
                         <input
                             type='text'
@@ -53,7 +53,7 @@ export default function Form() {
                         />
                     </div>
 
-                    <div className='form-group'>
+                    <div className={`form-group ${styles.email_input}`}>
                         <label>Email</label>
                         <input
                             type='email'
@@ -64,7 +64,7 @@ export default function Form() {
                         />
                     </div>
 
-                    <div className='form-group'>
+                    <div className={`form-group ${styles.message_input}`}>
                         <label>Message</label>
                         <textarea
                             name='message'
@@ -73,7 +73,7 @@ export default function Form() {
                     </div>
 
                     <input
-                        className='btn btn-info btn-sm'
+                        className={`btn btn-info btn-md ${styles.send_button}`}
                         id='contact-us-button'
                         type='submit'
                         value='Send'
