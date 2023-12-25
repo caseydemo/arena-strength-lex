@@ -8,7 +8,7 @@ export default function Accordion(props: AccordionProps) {
             id={props.id.toString()}
         >
             <div className='accordion-item'>
-                <h2
+                <h3
                     className='accordion-header'
                     id='headingOne'
                 >
@@ -22,7 +22,7 @@ export default function Accordion(props: AccordionProps) {
                     >
                         {props.title}
                     </button>
-                </h2>
+                </h3>
                 <div
                     id={`collapse-${props.id}`}
                     className='accordion-collapse collapse'

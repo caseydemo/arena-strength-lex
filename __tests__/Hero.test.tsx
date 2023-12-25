@@ -12,6 +12,9 @@ describe('Hero', () => {
             level: 1
         });
         expect(h1_element).toBeInTheDocument();
+
+        // const {debug} = render(<Hero />)
+        // debug()
     })
 
     test('background image has correct src', () => {
