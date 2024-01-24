@@ -6,15 +6,18 @@
     font-size: 35px;
     margin-top: 25px;
 }
-.service_description {
+.description {
     width: 75%;
     margin: auto;
+    padding-bottom: 20px;
 }
 .service_image {
     margin: auto;        
     display: block;
     padding: 0px;
     border-radius: 12px;
+    width: 90%;
+    height: auto;
 }
 .service_wrapper {
     height:100%;
