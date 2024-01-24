@@ -10,7 +10,7 @@ export default function Service(props: ServiceItemProps) {
         {/* title/description */}
         <div className={`col-sm ${styles.service_text_wrapper}`}>
           <h2 className={styles.service_title}>{props.title}</h2>
-          <p className={styles.service_description}>{props.text}</p>
+          <p className={styles.description}>{props.text}</p>
         </div>
 
         {/* image */}
