@@ -12,6 +12,7 @@ export default function AboutItem(props: AboutItemProps) {
         <Card className={styles.about_item}>
             <h2 className={styles.card_title} >{props.title}</h2>
             <Image
+                className={styles.image}
                 src={`/${props.image.src}`}
                 width={props.image.width}
                 height={props.image.height}
