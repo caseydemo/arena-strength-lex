@@ -34,7 +34,7 @@ export default function Services() {
             title: "Group Classes",
             id: "group-classes",
             image: {
-                src: "bench_spot_1.png",
+                src: "group_class_1.jpeg",
                 width: default_width,
                 height: default_height,
                 alt: "group classes image",
