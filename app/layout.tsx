@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import BootstrapClient from './components/UI/BootstrapClient'
 import React from 'react';
 
 
@@ -23,8 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className || ''}>
-        {children}
-        <BootstrapClient />
+        <div className="body-grid-item">
+          {children}                  
+        </div>
       </body>
     </html>
   );

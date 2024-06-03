@@ -1,5 +1,6 @@
 import { ServiceItemProps } from "../types";
 import Service from "./ServiceItem";
+import styles from "../styles/services.module.css";
 
 export default function Services() {
     const default_width = 500;
@@ -54,15 +55,8 @@ export default function Services() {
         },
     ];
 
-    return (
-        /*
-      two column layout
-      left column: image
-      right column: text
-    */
-        <div className='services'>
-            {/* loop through and render each hardcoded service */}
-            {/* TODO - put this into a db instead of being hardcoded */}
+    return (    
+        <div className={styles.services}>
             {services.map((service, index) => (
                 <Service
                     key={index}

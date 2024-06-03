@@ -1,0 +1,14 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* center the content with some padding on left/right */
+    justify-items: center;
+    align-items: center;
+    padding: 0 20px;
+
+    border: 1px solid red;
+}
+
+.body-grid-item {
+    margin: auto;
+}

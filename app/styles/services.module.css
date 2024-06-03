@@ -1,0 +1,7 @@
+.services {
+    display: grid;
+    grid-template-columns: 75%;
+    /* center the content with some padding on left/right */
+    justify-content: center;
+    padding: 0 20px;
+}
