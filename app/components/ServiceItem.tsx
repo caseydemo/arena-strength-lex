@@ -11,8 +11,8 @@ export default function Service(props: ServiceItemProps) {
 			<div className={styles.grid_description}>
 				{props.text}
 			</div>
-			<div className={styles.grid_image} >
-				<Image src={props.image.src} width={props.image.width} height={props.image.height} alt={props.image.alt} />
+			<div className={styles.grid_image_container} >
+				<Image src={props.image.src} width={props.image.width} height={props.image.height} alt={props.image.alt} className={styles.service_image} />
 			</div>
         </Card>
     );

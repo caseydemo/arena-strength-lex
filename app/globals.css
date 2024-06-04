@@ -11,4 +11,7 @@ body {
 
 .body-grid-item {
     margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 85%;
 }

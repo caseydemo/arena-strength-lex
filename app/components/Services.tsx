@@ -1,6 +1,7 @@
 import { ServiceItemProps } from "../types";
 import Service from "./ServiceItem";
 import styles from "../styles/services.module.css";
+// layout --> page --> services --> service item --> card --> content
 
 export default function Services() {
     const default_width = 500;

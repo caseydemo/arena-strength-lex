@@ -1,44 +1,53 @@
-.grid_title {
-    grid-row: 1/2;
-    font-size: 30px;
-    font-weight: 700;
-    color: #333;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 
-.grid_description {
-    grid-row: 2/3;
-    font-size: 20px;
-    color: #333;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.grid_image {
-    grid-row: 1/3;
-    border-radius: 12px;
-    margin-top: 45px;
-    padding: 0px;
-    display: flex;
+.grid_title, .grid_description, .grid_image_container {
+    /* center everyting */
+    display: grid;
     align-items: center;
     justify-content: center;
 }
+.grid_title, .grid_description {
+    /* center text */
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #333;
+    padding: 0px 20px;
+}
+.grid_title {
+    font-size: 30px;
+    font-weight: 700;
+    grid-area: title;
+}
+
+.grid_description {
+    font-size: 20px;        
+    grid-area: description;
+}
+
+.grid_image_container {
+    border-radius: 12px;
+    margin-top: 45px;
+    padding: 0px;
+    overflow: hidden;    
+    grid-area: image;    
+}
+
+.service_image {
+    border-radius: 12px;
+}
 
 /* media query for desktop size screens - min-width */
+/* this is for desktop styles */
 @media only screen and (min-width: 768px) {
-    .service_title {
-        font-size: 50px;
+    .grid_title {
+        /*  */
     }
-    .service_image_wrapper {
-        padding-left:0px;
+    
+    .grid_description {
+        /*  */
     }
-    .service_card {
-        height: 475px;        
-    }
-    .service_image {
-        border-radius: 12px;
-        margin-top: 45px;
-        padding: 0px;
+    
+    .grid_image {
+        /*  */
     }
 }
