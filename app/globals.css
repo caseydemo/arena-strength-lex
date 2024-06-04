@@ -12,6 +12,16 @@ body {
 .body-grid-item {
     margin: auto;
     display: grid;
-    grid-template-columns: 1fr;
-    width: 85%;
+    grid-template-columns: 1fr;    
+}
+
+/* media query for desktop size screens - min-width */
+/* this is for desktop styles */
+@media only screen and (min-width: 768px) {    
+    .body-grid-item {
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 85%;
+    }
 }

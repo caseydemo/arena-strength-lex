@@ -1,36 +1,4 @@
 
-.grid_title, .grid_description, .grid_image_container {
-    /* center everyting */
-    display: grid;
-    align-items: center;
-    justify-content: center;
-}
-.grid_title, .grid_description {
-    /* center text */
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: #333;
-    padding: 0px 20px;
-}
-.grid_title {
-    font-size: 30px;
-    font-weight: 700;
-    grid-area: title;
-}
-
-.grid_description {
-    font-size: 20px;        
-    grid-area: description;
-}
-
-.grid_image_container {
-    border-radius: 12px;
-    margin-top: 45px;
-    padding: 0px;
-    overflow: hidden;    
-    grid-area: image;    
-}
 
 .service_image {
     border-radius: 12px;
@@ -39,15 +7,37 @@
 /* media query for desktop size screens - min-width */
 /* this is for desktop styles */
 @media only screen and (min-width: 768px) {
+
+    .grid_title, .grid_description, .grid_image_container {
+        /* center everyting */
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    }
+    .grid_title, .grid_description {
+        /* center text */
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: #333;
+        padding: 0px 20px;
+    }
     .grid_title {
-        /*  */
+        font-size: 30px;
+        font-weight: 700;
+        grid-area: title;
     }
     
     .grid_description {
-        /*  */
+        font-size: 20px;        
+        grid-area: description;
     }
     
-    .grid_image {
-        /*  */
+    .grid_image_container {
+        border-radius: 12px;
+        margin-top: 45px;
+        padding: 0px;
+        overflow: hidden;    
+        grid-area: image;    
     }
 }

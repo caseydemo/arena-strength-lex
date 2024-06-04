@@ -7,7 +7,12 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "title image" "description image";
-}   
+}
+
+@media screen and (min-width: 768px) {
+    .card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "title image" "description image";
+    }
+}
