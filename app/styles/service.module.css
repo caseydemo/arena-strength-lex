@@ -1,7 +1,10 @@
-
-
 .service_image {
     border-radius: 12px;
+}
+
+.grid_title, .grid_description {
+    padding: 20px 20px;
+    line-height: 1.5;
 }
 
 /* media query for desktop size screens - min-width */
@@ -12,7 +15,6 @@
         /* center everyting */
         display: grid;
         align-items: center;
-        justify-content: center;
     }
     .grid_title, .grid_description {
         /* center text */
@@ -20,7 +22,7 @@
         margin-top: 10px;
         margin-bottom: 10px;
         color: #333;
-        padding: 0px 20px;
+        padding: 0px 20px;        
     }
     .grid_title {
         font-size: 30px;
@@ -31,6 +33,7 @@
     .grid_description {
         font-size: 20px;        
         grid-area: description;
+        justify-content: right;        
     }
     
     .grid_image_container {
@@ -38,6 +41,7 @@
         margin-top: 45px;
         padding: 0px;
         overflow: hidden;    
-        grid-area: image;    
+        grid-area: image;
+        justify-content: left;    
     }
 }
