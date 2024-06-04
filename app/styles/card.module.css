@@ -1,4 +1,4 @@
-.card {
+.about_card, .service_card {
     align-items: center;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -10,9 +10,15 @@
 }
 
 @media screen and (min-width: 768px) {
-    .card {
+    .service_card {
         display: grid;
         grid-template-columns: 2fr 1fr;
         grid-template-areas: "title image" "description image";
+    }
+    .about_card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "title image" "description description";
     }
 }

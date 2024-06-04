@@ -7,8 +7,7 @@ export default function Services() {
     const default_width = 500;
     const default_height = 500;
 
-    // make a list of services that are of type ServiceItem and contain and image of type ImageData
-    // TODO - put this into a db instead of being hardcoded
+    // make a list of services that are of type ServiceItem and contain and image of type ImageData    
     const services: ServiceItemProps[] = [
         {
             title: "Open Gym",

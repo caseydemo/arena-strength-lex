@@ -1,4 +1,4 @@
-import Card from "./UI/Card";
+import Card from "./UI/AboutCard";
 import styles from "../styles/default.module.css";
 export default function Location() {
     return (

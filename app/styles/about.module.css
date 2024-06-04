@@ -1,6 +1,12 @@
-.card_title {
-    margin-top: 25px;
+.about_grid_title {
+    display: grid;
+    grid-area: title;
 }
-.image {
-    border-radius: 5px;
+.about_grid_image {
+    display: grid;
+    grid-area: image;
+}
+.about_grid_description {
+    display: grid;
+    grid-area: description;
 }

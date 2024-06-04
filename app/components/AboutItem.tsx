@@ -1,4 +1,4 @@
-import Card from "./UI/Card";
+import AboutCard from "./UI/AboutCard";
 import Image from "next/image";
 import { AboutItemProps } from "../types";
 import Accordion from "./UI/Accordion";
@@ -9,16 +9,18 @@ import styles from "../styles/about.module.css";
 export default function AboutItem(props: AboutItemProps) {
 
     return (
-        <Card className={styles.about_item}>
-            <h2 className={styles.card_title} >{props.title}</h2>
+        <AboutCard>
+            <h2 className={styles.about_grid_title} >{props.title}</h2>
             <Image
-                className={styles.image}
+                className={styles.about_grid_image}
                 src={`/${props.image.src}`}
                 width={props.image.width}
                 height={props.image.height}
                 alt={props.image.alt}
             />
-            <Accordion id={props.id} title={props.title} text={props.text} />
-        </Card>
+            <div className={styles.about_grid_description} >
+                <Accordion id={props.id} title={props.title} text={props.text} />
+            </div>
+        </AboutCard>
     );
 }

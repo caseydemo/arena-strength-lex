@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Card from "./UI/Card";
+import ServiceCard from "./UI/ServiceCard";
 import styles from "../styles/service.module.css";
 import { ServiceItemProps } from "../types";
 export default function Service(props: ServiceItemProps) {
     return (
-        <Card>
+        <ServiceCard>
             <div className={styles.grid_title}>
 				<h2>{props.title}</h2>
 			</div>
@@ -14,6 +14,6 @@ export default function Service(props: ServiceItemProps) {
 			<div className={styles.grid_image_container} >
 				<Image src={props.image.src} width={props.image.width} height={props.image.height} alt={props.image.alt} className={styles.service_image} />
 			</div>
-        </Card>
+        </ServiceCard>
     );
 }
