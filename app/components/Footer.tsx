@@ -57,7 +57,7 @@ export default function Footer() {
                 </a>
                 {/* phone */}
                 <a                    
-                    href='tel:859-333-9300'
+                    href='tel:859-533-1684'
                     target='_blank'
                     rel='noreferrer'
                 >
