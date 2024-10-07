@@ -85,7 +85,7 @@ export default function Form() {
                 <>
                     <h1>Thank You!</h1>
                     <p>We will get back with you as soon as possible, for more immediate contact you can also call us at:</p>
-                    <p>Phone: (859) 333-9300</p>
+                    <p>Phone: (859) 533-1684</p>
                     <p>Or stop by and say hello!</p>                    
                 </>
             )}
