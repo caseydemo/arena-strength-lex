@@ -15,7 +15,6 @@ export const metadata: Metadata = {
     description:
         "Lexington Kentucky's premier weight training gym. Powerlifting, Strongman, Personal Training, Group Classes and more.",
     robots: "index, followw, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-    charSet: "UTF-8",
     alternates: {
         canonical: "https://arena-strength-lex.com/",
     },
