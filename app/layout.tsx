@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import BootstrapClient from "./components/UI/BootstrapClient";
 import React from "react";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export const metadata: Metadata = {
         locale: "en_US",
     },
 };
+
 
 const defaultSchema = {
     "@context": "https://schema.org",
@@ -137,6 +139,8 @@ const defaultSchema = {
 };
 
 const schemaString = '<script type="application/ld+json">' + JSON.stringify(defaultSchema) + '</script>';
+const gtmId = "G-4QM0SQ0QYY";
+const gtmUrl = "https://www.googletagmanager.com/gtag/js?id=" + gtmId;
 
 export default function RootLayout({
     children,
@@ -145,7 +149,16 @@ export default function RootLayout({
 }) {
     return (
         <html lang='en'>
-            <body className={inter.className || ""}>
+            <GoogleTagManager gtmId={gtmId} />
+            <body className={inter.className || ""}>            
+            <noscript>
+                <iframe 
+                    src={gtmUrl}
+                    height="0" 
+                    width="0" 
+                    style={{display:"none", visibility:"hidden"}}>
+                </iframe>
+            </noscript>
             <div dangerouslySetInnerHTML={{ __html: schemaString }} />
                 {children}
                 <BootstrapClient />
