@@ -139,8 +139,8 @@ const defaultSchema = {
 };
 
 const schemaString = '<script type="application/ld+json">' + JSON.stringify(defaultSchema) + '</script>';
-// const gtmId = "G-4QM0SQ0QYY";
-const gtmId = "GTM-K9DXK24W";
+const gtmId = "G-4QM0SQ0QYY";
+// const gtmId = "GTM-K9DXK24W";
 const gtmUrl = "https://www.googletagmanager.com/gtag/js?id=" + gtmId;
 
 export default function RootLayout({
@@ -150,19 +150,19 @@ export default function RootLayout({
 }) {
     return (
         <html lang='en'>
-            <GoogleTagManager gtmId={gtmId} />
             <body className={inter.className || ""}>            
-            <noscript>
-                <iframe 
-                    src={gtmUrl}
-                    height="0" 
-                    width="0" 
-                    style={{display:"none", visibility:"hidden"}}>
-                </iframe>
-            </noscript>
             <div dangerouslySetInnerHTML={{ __html: schemaString }} />
                 {children}
                 <BootstrapClient />
+                <GoogleTagManager gtmId={gtmId} />
+                <noscript>
+                    <iframe 
+                        src={gtmUrl}
+                        height="0" 
+                        width="0" 
+                        style={{display:"none", visibility:"hidden"}}>
+                    </iframe>
+                </noscript>
             </body>
         </html>
     );
