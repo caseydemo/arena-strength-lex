@@ -24,6 +24,11 @@
   color: white;
 }
 
+.hero_subtitle {
+  color: var(--green);
+  font-weight: bold;
+}
+
 .heroTitle {
   text-transform: uppercase;
   font-size: 50px;

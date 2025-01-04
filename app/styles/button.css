@@ -1,6 +1,21 @@
+:root {
+    --light-blue: #27a8c6;
+    --dark-blue: #47adc5;
+    --green: #8fa761;
+}
+/* dark blue #47adc5 */
+/* light blue #27a8c6 */
+/* green #8fa761 */
 .sign-up-left {
-    background-color: red;
+    background-color: var(--dark-blue)
 }
 .sign-up-right {
-    background-color: black;
+    background-color: var(--dark-blue)
+}
+
+.sign-up-left:hover, .sign-up-right:hover {
+    /* on hover, change color to black */
+    background-color: var(--green);
+    border: none;
+
 }
