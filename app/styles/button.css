@@ -1,0 +1,32 @@
+:root {
+    --light-blue: #27a8c6;
+    --dark-blue: #0b729d;
+    --green: #8fa761;
+}
+@media only screen and (max-width: 600px) {
+    .sign-up-left {
+        margin-bottom: 25px;
+    }
+}
+.sign-up-left {
+    background-color: var(--dark-blue)
+}
+.sign-up-right {
+    background-color: var(--green)
+}
+
+.sign-up-left:hover, .sign-up-right:hover {
+    /* border: none; */
+    font-weight: bolder;
+}
+
+.sign-up-left:hover {
+    background-color: var(--dark-blue);
+    
+}
+
+.sign-up-right:hover {
+    background-color: var(--green);
+   
+}
+

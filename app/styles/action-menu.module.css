@@ -1,0 +1,25 @@
+/* .action_menu_container {
+    margin-top: 50px;
+} */
+
+.action_menu_card_container {
+    margin: auto;
+    width: 25%;
+}
+
+/* open gym price */
+.action_menu_price_container {
+    margin-bottom: 20px;
+    .action_menu_price_heading {
+        padding: 25px 0px;
+        font-size: 25px;
+    }
+}
+
+/* mobile */
+@media only screen and (max-width: 600px) {
+    .action_menu_price_heading {
+        width: 50% !important;
+        padding: 0px !important;
+    }
+}
