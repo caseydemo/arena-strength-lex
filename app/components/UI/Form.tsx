@@ -1,7 +1,16 @@
-import emailjs from "emailjs-com";
+import emailjs from '@emailjs/browser';
 import styles from "../../styles/form.module.css";
 import React, { useState, useRef } from "react";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+
+// TypeScript declaration for the global grecaptcha object
+declare global {
+    interface Window {
+        grecaptcha: {
+            ready: (callback: () => void) => void;
+            execute: (siteKey: string, options: { action: string }) => Promise<string>;
+        };
+    }
+}
 
 // https://dev.to/ivanms1/protecting-your-api-keys-with-next-js-21ej
 
@@ -11,22 +20,32 @@ export default function Form() {
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
-    const { executeRecaptcha } = useGoogleReCaptcha();
         
     async function sendEmail(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-
-        if (!executeRecaptcha) {
-            setErrorMessage("reCAPTCHA is not available. Please try again later.");
-            return;
-        }
 
         setIsLoading(true);
         setErrorMessage(null);
 
         try {
+            // Check if reCAPTCHA is available
+            if (!window.grecaptcha) {
+                setErrorMessage("reCAPTCHA is not available. Please try again later.");
+                setIsLoading(false);
+                return;
+            }
+
             // Execute reCAPTCHA and get token
-            const recaptchaToken = await executeRecaptcha('contact_form');
+            await new Promise<void>((resolve) => {
+                window.grecaptcha.ready(() => {
+                    resolve();
+                });
+            });
+
+            const recaptchaToken = await window.grecaptcha.execute(
+                process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
+                { action: 'contact_form' }
+            );
             
             // For static sites, we'll add the token to the form data
             // EmailJS will include it in the email, and you can monitor for spam patterns
