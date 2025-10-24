@@ -5,6 +5,7 @@ import "./globals.css";
 import BootstrapClient from "./components/UI/BootstrapClient";
 import React from "react";
 import { GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -152,6 +153,10 @@ export default function RootLayout({
         <html lang='en'>
             <body className={inter.className || ""}>            
             <div dangerouslySetInnerHTML={{ __html: schemaString }} />
+                <Script
+                    src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+                    strategy="beforeInteractive"
+                />
                 {children}
                 <BootstrapClient />
                 <GoogleTagManager gtmId={gtmId} />
