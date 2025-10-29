@@ -22,6 +22,82 @@ export default function Form() {
 	const [formSubmitted, setFormSubmitted] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
+	const [formStartTime] = useState<number>(Date.now()); // Track when form was loaded
+
+	// Anti-spam validation function
+	function validateFormForSpam(formElement: HTMLFormElement): { isSpam: boolean; reason?: string } {
+		// Check honeypot fields
+		const website = (formElement.querySelector('input[name="website"]') as HTMLInputElement)?.value;
+		const phone = (formElement.querySelector('input[name="phone"]') as HTMLInputElement)?.value;
+		const company = (formElement.querySelector('input[name="company"]') as HTMLInputElement)?.value;
+		
+		if (website || phone || company) {
+			return { isSpam: true, reason: "Honeypot field filled" };
+		}
+
+		// Check form submission speed (too fast = likely spam)
+		const submissionTime = Date.now() - formStartTime;
+		if (submissionTime < 3000) { // Less than 3 seconds
+			return { isSpam: true, reason: "Form submitted too quickly" };
+		}
+
+		// Check for common spam content patterns
+		const nameField = formElement.querySelector('input[name="user_name"]') as HTMLInputElement;
+		const emailField = formElement.querySelector('input[name="user_email"]') as HTMLInputElement;
+		const messageField = formElement.querySelector('textarea[name="message"]') as HTMLTextAreaElement;
+
+		const name = nameField?.value?.toLowerCase() || '';
+		const email = emailField?.value?.toLowerCase() || '';
+		const message = messageField?.value?.toLowerCase() || '';
+
+		// Check for spam keywords
+		const spamKeywords = [
+			'seo', 'marketing', 'promotion', 'website design', 'web design',
+			'increase sales', 'boost ranking', 'google ranking', 'traffic',
+			'backlinks', 'link building', 'digital marketing', 'social media marketing',
+			'crypto', 'bitcoin', 'investment', 'loan', 'mortgage', 'insurance',
+			'viagra', 'cialis', 'pharmacy', 'pills', 'medication',
+			'casino', 'gambling', 'poker', 'slots',
+			'get rich', 'make money', 'work from home', 'earn money online'
+		];
+
+		const fullText = `${name} ${email} ${message}`;
+		const foundSpamKeywords = spamKeywords.filter(keyword => fullText.includes(keyword));
+		
+		if (foundSpamKeywords.length > 0) {
+			return { isSpam: true, reason: `Spam keywords detected: ${foundSpamKeywords.join(', ')}` };
+		}
+
+		// Check for excessive links
+		const urlPattern = /(https?:\/\/[^\s]+)/g;
+		const urls = message.match(urlPattern);
+		if (urls && urls.length > 2) {
+			return { isSpam: true, reason: "Too many URLs in message" };
+		}
+
+		// Check for suspicious email patterns
+		const suspiciousEmailDomains = [
+			'tempmail', 'guerrillamail', '10minutemail', 'mailinator',
+			'throwaway', 'temp-mail', 'disposable'
+		];
+		
+		const emailDomain = email.split('@')[1];
+		if (emailDomain && suspiciousEmailDomains.some(domain => emailDomain.includes(domain))) {
+			return { isSpam: true, reason: "Suspicious email domain" };
+		}
+
+		// Check message length (too short often indicates spam)
+		if (message.length < 10) {
+			return { isSpam: true, reason: "Message too short" };
+		}
+
+		// Check for repeated characters or excessive caps
+		if (/(.)\1{4,}/.test(message) || message.toUpperCase() === message && message.length > 20) {
+			return { isSpam: true, reason: "Suspicious text patterns" };
+		}
+
+		return { isSpam: false };
+	}
 
 	async function sendEmail(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
@@ -32,6 +108,18 @@ export default function Form() {
 		try {
 			// Capture form data from the event target
 			const formElement = e.currentTarget;
+
+			// Anti-spam validation
+			const spamCheck = validateFormForSpam(formElement);
+			if (spamCheck.isSpam) {
+				// Log spam attempt for monitoring (you can remove this in production)
+				console.warn('Spam attempt blocked:', spamCheck.reason);
+				
+				// Show generic error to user (don't reveal why it was blocked)
+				setErrorMessage("There was an issue with your submission. Please try again later.");
+				setIsLoading(false);
+				return;
+			}
 
 			// Check each form field directly
 			const nameField = formElement.querySelector('input[name="user_name"]') as HTMLInputElement;
@@ -65,7 +153,9 @@ export default function Form() {
 				user_email: emailField?.value || '',
 				message: messageField?.value || '',
 				reply_to: emailField?.value || '',
-				recaptcha_token: recaptchaToken
+				recaptcha_token: recaptchaToken,
+				submission_time: new Date().toISOString(),
+				form_load_duration: Math.round((Date.now() - formStartTime) / 1000) + 's'
 			};
 
 			const response = await emailjs.send(
@@ -136,6 +226,34 @@ export default function Form() {
 							className='form-control'
 							required
 							disabled={isLoading}
+						/>
+					</div>
+
+					{/* Honeypot fields - hidden from real users but visible to spam bots */}
+					<div className={styles.honeypot}>
+						<label>Website (leave blank)</label>
+						<input
+							type="text"
+							name="website"
+							tabIndex={-1}
+							autoComplete="off"
+							className={styles.honeypot}
+						/>
+						<label>Phone (do not fill)</label>
+						<input
+							type="text"
+							name="phone"
+							tabIndex={-1}
+							autoComplete="off"
+							className={styles.honeypot}
+						/>
+						<label>Company (skip this field)</label>
+						<input
+							type="text"
+							name="company"
+							tabIndex={-1}
+							autoComplete="off"
+							className={styles.honeypot}
 						/>
 					</div>
 
