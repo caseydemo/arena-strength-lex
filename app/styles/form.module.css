@@ -10,3 +10,20 @@
 .card_title {
     margin-top: 25px;
 }
+
+/* Honeypot fields - multiple hiding techniques for better protection */
+.honeypot {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+}
